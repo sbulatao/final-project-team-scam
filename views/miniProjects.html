@@ -1,80 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Showcase</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 80%;
-      margin: auto;
-      overflow: hidden;
-    }
-    .project {
-      background-color: #fff;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-    }
-    .project img {
-      width: 150px;
-      height: 150px;
-      border-radius: 8px;
-      margin-right: 20px;
-      object-fit: cover;
-    }
-    .project-description {
-      max-width: 600px;
-    }
-    .project-description h3 {
-      margin: 0;
-      color: #333;
-    }
-    .project-description p {
-      margin: 10px 0 0;
-      color: #666;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <link rel="stylesheet" type="text/css" href="/css/miniProjects.css">
 
-<div class="container">
-  <!-- Project 1 -->
-  <div class="project">
-    <img src="path/to/project1.jpg" alt="Project 1 Image">
-    <div class="project-description">
-      <h3>Project 1: VUMeter</h3>
-      <p>Created VuMeter by soldering resistors, LEDs, and microphone module on board, connecting all hardware to pcb. We also made PCB's with stensils and solder paste to connect the board we made to our computer with an added USB-C port.</p>
+  </head>
+
+  <body>
+
+    <!-- MENU BAR -->
+    <nav class="menu-bar">
+      <a href="/"> Home </a>  <!-- This is the homepage-->
+      <a href="/teams"> Team </a>  <!-- This is the teams page  -->
+      <a href="/milestonesAndTimelines"> Milestones/Timelines </a>  <!-- This is the milestones and timeline page  -->
+      <a href="/favorites"> Favorites </a>  <!-- This is the favoritees page  -->
+      <a href="/schematics"> Schematics </a>  <!-- This is the schematics page  -->
+      <a href="/video"> Video Demo </a>  <!-- This is the video demo page-->
+      <a href="/poster"> Poster </a>  <!-- This is the poster page -->
+      <a href="/miniProjects"> Mini Projects </a>  <!-- This is the mini projects page -->
+      <a href="/resources"> Resources </a>  <!-- This is the poster page -->
+  </nav>
+
+  <!-- ------- -->
+
+
+  <div class="container">
+    <!-- Project 1 -->
+    <div class="project">
+      <img src="pictures/ditto.jpeg" alt="Project 1 Image">
+      <div class="project-description">
+        <h3>Project 1: VUMeter</h3>
+        <p>Created VuMeter by soldering resistors, LEDs, and microphone module on board, connecting all hardware to pcb. We also made PCB's with stensils and solder paste to connect the board we made to our computer with an added USB-C port.</p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <img src="pictures/ditto.jpeg" alt="Project 2 Image">
+      <div class="project-description">
+        <h3>Project 2: Spinning and Blinking</h3>
+        <p>among us</p>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+      <img src="pictures/ditto.jpeg" alt="Project 3 Image">
+      <div class="project-description">
+        <h3>Project 3: Full Stack</h3>
+        <p>Dunno tbh</p>
+      </div>
     </div>
   </div>
 
-  <!-- Project 2 -->
-  <div class="project">
-    <img src="path/to/project2.jpg" alt="Project 2 Image">
-    <div class="project-description">
-      <h3>Project 2: Spinning and Blinking</h3>
-      <p>among us</p>
-    </div>
-  </div>
+  </body>
 
-  <!-- Project 3 -->
-  <div class="project">
-    <img src="path/to/project3.jpg" alt="Project 3 Image">
-    <div class="project-description">
-      <h3>Project 3: Full Stack</h3>
-      <p>Dunno tbh</p>
-    </div>
-  </div>
-</div>
+  <footer>
+    <img 
+        class="fit-picture"
+        src="pictures/UCSanDiegoLogo-BlueGold.png" 
+        width="200px"
+        alt="UCSD Logo"/>
+  </footer>
 
-</body>
 </html>

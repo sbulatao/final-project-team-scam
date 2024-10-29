@@ -5,22 +5,22 @@ body {
 }
 
 .menu-bar { /* menu bar */
-    background-color: #3b67be;
-    overflow: hidden;
+  background-color: #3b67be;
+  overflow: hidden;
 }
 
 .menu-bar a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .menu-bar a:hover {
-    background-color: #1687B5;
-    color: black;
+  background-color: #1687B5;
+  color: black;
 }
 
 h1 {

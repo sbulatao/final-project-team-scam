@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+.project {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+.project img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+.project-description {
+    max-width: 600px;
+}
+.project-description h3 {
+    margin: 0;
+    color: #333;
+}
+.project-description p {
+    margin: 10px 0 0;
+    color: #666;
+}
