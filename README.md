@@ -1,10 +1,12 @@
-# Final Project
+# SolutionForpollution
+GitHub Repo for ECE 196 Project Managing code, PCB files, 3D design, and more.
 
-This is where you and your team will place design documents, notes, research, etc.
 
-We want to see your individual contributions and progress over time, so make sure each of
-you contribute substantially. We will look at the commit history to see your contributions.
+## Structure:
+- css file contains all the css: the style for the website
 
-# Submission
+- pictures file contains all the pictures: jpeg, png, etc.
 
-1. All your work!
+- public file contains all the js: the action-ish for the website
+
+- views file contains all the html: the bone structure for the website
