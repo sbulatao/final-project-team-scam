@@ -1,8 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-body {
+/* body {
   margin:0;
-}
+} */
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;
