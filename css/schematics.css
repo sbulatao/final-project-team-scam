@@ -1,16 +1,35 @@
-/* body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-} */
-
+}
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+.schematic {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.schematic h3 {
+  margin: 0;
+  color: #333;
+}
+.schematic p {
+  margin: 10px 0;
+  color: #666;
+}
 
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-body {
+/* body {
   margin:0;
-}
+} */
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;
