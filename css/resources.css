@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -31,11 +33,6 @@ body {
 .resource a:hover {
     text-decoration: underline;
 }
-
-/* //////////// */
-
-
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 /* body {
   margin:0;

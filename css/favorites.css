@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,7 +7,7 @@ body {
     padding: 0;
 }
 .container {
-    width: 80%;
+    width: 50%;
     margin: auto;
     overflow: hidden;
 }
@@ -26,20 +28,18 @@ body {
     object-fit: cover;
 }
 .favorite-info{
-    max-width: 600px;
+    max-width: fit-content;
 }
 .favorite-info h3 {
     margin: 0;
     color: #333;
+    text-align: left;
 }
 .favorite-info p {
     margin: 10px 0;
     color: #666;
+    text-align: left;
 }
-
-
-
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 /* body {
   margin:0;

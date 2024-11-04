@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;
@@ -5,7 +7,7 @@ body {
   padding: 0;
 }
 .container {
-  width: 80%;
+  width: 60%;
   margin: auto;
   overflow: hidden;
 }
@@ -15,18 +17,17 @@ body {
   margin: 20px 0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 }
-.box h3 {
+.box-info h3 {
   margin: 0;
   color: #333;
 }
-.box p {
+.box-info p {
   margin: 10px 0;
   color: #666;
 }
-
-
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 /* body {
   margin:0;
