@@ -1,7 +1,9 @@
 # SolutionForpollution
 GitHub Repo for ECE 196 Project Managing code, PCB files, 3D design, and more.
 
-## WEBSITE: 
+## WEBSITES: 
+https://scam.196.aiya.lol/
+
 https://final-project-team-scam.onrender.com
 
 
