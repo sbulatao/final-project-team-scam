@@ -43,6 +43,14 @@ If there is polluted water with a more acidic pH, then our device will read the 
 
 ## References, Citations, Helpful Resources
 
+# HTML References
+FreeFrontend. 2016-2024. https://freefrontend.com/css-water-effects/
+
+HTML5UP. https://html5up.net/ (Didn't Use but thinking about it)
+
+
+## Research / Arduino Build
+
 Fahad, Engr. Electronic Clinic. 8 March 2020. IOT Water Quality Monitoring Using Arduino, pH Sensor, Nodemcu ESP8266. https://www.electroniclinic.com/iot-water-quality-monitoring-using-arduinoph-sensornodemcu-esp8266/
 
 Ani, Emmanuel. hackster.io. 4 May 2024. Water Quality Monitoring and Notification System. https://www.hackster.io/eani/water-quality-monitoring-and-notification-system-f85d23 
@@ -61,13 +69,13 @@ https://www.nsf.org/nsf-standards/standards-portfolio/water-wastewater-standards
 (ERROR 404 GIVEN) https://www.instructables.com/howto/water+quality+monitor/
 
 
-Website for the San Diego Coast Keepers EVIDENCE:
+## Website for the San Diego Coast Keepers EVIDENCE:
 
 - Home page. https://www.sdcoastkeeper.org/
 - Stormwater Infrastructure. https://www.sdcoastkeeper.org/water-quality/stormwater-infrastructure-funding/
 - Tijuana River Sewage Crisis. https://www.sdcoastkeeper.org/tijuana-river-sewage/
 
-Other EVIDENCE:
+## Other EVIDENCE:
 
 Museg, Phillip. San Diego CoastKeeper. 2 May 2024. Understanding The Tijuana River Sewage Crisis - An Overview of Causes and Consequences. https://www.sdcoastkeeper.org/blog/tijuana-river-sewage-crisis-causes-consequences/
 
