@@ -12,23 +12,26 @@ void setup() {
 }
 
 void loop() {
-    // Blink and spin motor in one direction
+    // Spin motor in one direction only at full speed
     blinkAndSpin(MOTOR_HIGH_PIN, MOTOR_LOW_PIN);
-
-    // Blink and spin motor in the opposite direction
-    // blinkAndSpin(MOTOR_LOW_PIN, MOTOR_HIGH_PIN);
 }
 
 void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
-    for (int speed = 0; speed <= 255; speed += 5) {
-        // Blink the LED every 25 increments of speed
-        digitalWrite(LED_PIN, (speed % 25 == 0) ? HIGH : LOW);
+    // Start the motor at full speed for stronger spinning
+    int speed = 255;
+    
+    // Blink the LED
+    digitalWrite(LED_PIN, HIGH);
+    
+    // Set motor to full speed in one direction
+    analogWrite(pin1, speed);
+    analogWrite(pin2, 0);
+    
+    // Adjust delay as needed for faster looping and stronger motor action
+    delay(1000); // Keeps motor spinning at full speed for 1 second
 
-        // Control the motor speed
-        analogWrite(pin1, speed);
-        analogWrite(pin2, 0);
-
-        // Delay to control the speed of the loop
-        delay(50);
-    }
+    // Turn off LED and stop motor briefly
+    digitalWrite(LED_PIN, LOW);
+    analogWrite(pin1, 0);
+    delay(0);
 }
