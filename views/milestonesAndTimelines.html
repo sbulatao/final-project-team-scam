@@ -5,12 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Milestones and Timelines</title>
         <link rel="stylesheet" type="text/css" href="/css/milestonesAndTimelines.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+
     </head>
     
 
     <body>
         <!-- MENU BAR -->
-        <nav class="menu-bar">
+        <nav class="menu-bar" role="navigation">
             <a href="/"> Home </a>  <!-- This is the homepage-->
             <a href="/teams"> Team </a>  <!-- This is the teams page  -->
             <a href="/milestonesAndTimelines"> Milestones/Timelines </a>  <!-- This is the milestones and timeline page  -->
@@ -52,122 +56,723 @@
 
 
             <!-- CONTENTS HERE -->
-
             <!-- MAIN CONTAINER -->
             <div class="container">
-
                 <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 1. PCB and Parts </h3>
-                        <p> Completed PCB design on KiCAD and received 
-                            parts from shipping.</p>
+                        
+                        <h3>1. Completed PCB design on KiCAD and received parts from shipping </h3>
+                        
+                        <p> Complete PCB design on KiCAD for the placement of 
+                            an OLED, a ESP32-S3-Mini-1, a pH Sensor, and a 9V battery. </p>
+
+                        <img class="fit-picture" src="pictures/Schematic.PNG" alt="Schematic">
+                        <img class="fit-picture" src="pictures/PCB circuit.PNG" alt="PCB circuit">    
+                        <img class="fit-picture" src="pictures/3D View.PNG" alt="3D View">
+
+                        <p><b><u> Parts ordered on 23 October 2024: </u></b></p>
+                            <p><b> DC Female Power Jack: </b> This is a 2.1 mm PCB Mounting Female. </p>
+                            <p><b> Adafruit Water Pump: </b>  This is to regulate water with acidic/basic solutions respectively. </p>
+                            <p><b> Adafruit Silicon Tubing: </b> This is a tube to regulate water pH levels on the main container. </p>
+                            <p><b> 9V Batter Enclosure: </b> This goes with an enclosure with jack. </p>
+                            <p><b>  pH Sensor: </b> We are using this to measure the pH value from the main water tank. </p>
+                            <p><b> Capacitor: </b> 470 uF </p>
+                            <p><b> Analog pH Sensor Kit: </b> This is a back up pH sensor. </p>
+
+                        <p><b><u> Parts ordered on 27 October 2024: </u></b></p>
+                            <p><b> Screw M3x8: </b> For connecting pH sensor to PCB. </p>
+
+                        <p><b><u> Parts ordered on 28 October 2024: </u></b></p>
+                            <p><b> Diode 1N4007: </b> This is to control the 9V to 5V battery. </p>
+                            <p><b> 9V-5V Voltage Regulator: </b> This converts the battery from 9V yo 5V for the power supply. </p>
+
+                        <p><b><u> Parts ordered on 30 October 2024: </u></b></p>
+                        <p><b> Capacitor: </b> 0.1 uF </p>
+                        <p><b> Capacitor: </b> 0.22 uF </p>
+
+                        <p><b><u> Parts ordered on 2 November 2024: </u></b></p>
+                        <p><b> Resistors: </b> 4.7k </p>
+
+                        <p><b><u> Parts ordered on 4 November 2024: </u></b></p>
+                        <p><b> Resistors: </b> 100 Ohm </p>
+                        <p><b> NMOS: </b> This controls the flowing voltage. </p>
+
+                        <p><b><u> Parts ordered on 13 November 2024: </u></b></p>
+                        <p><b> Active Carbon Pellet: </b> This will be part of the Water Filter System. </p>
+                        <p><b> Turbidity Sensor: </b> This will be part of the main water tank to measure the turbidy of the water. </p>
+                        <p><b> Gravel: </b> This will be part of the Water Filter System. </p>
+                        <p><b> Waterproof Servo: </b> This will be within the main tank Water Filter System. </p>
+
+                        <a href="https://docs.google.com/spreadsheets/d/18aZwru9-69Z2Nt0p6g0J7G4wZZa2jN1mRS2d1i4Bry4/edit?gid=467610350#gid=467610350"> Parts Order Form Link HERE </a>
+                        
+                        <h2> Deadline WEEK 7: Wednesday November 13th </h2>
+                        <h2> Status: DONE! </h2>
                     </div>
                 </div>
 
-                <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 2. Assemble PCB </h3>
-                        <p> Assembled PCB with all necessary SMD’s 
-                            and components and verified successful 
-                            communication with computer (the device 
-                            is recognized) </p>
+
+                        <h3>2. Test and confirm LCD works to display things with ESP32 </h3>
+
+                        <p> We have tested the OLCD display with the ESP32-S3-Mini-1 and confirmed that it works.</p>
+
+                        <img class="fit-picture" src="pictures/OLED_Screen.jpeg" alt="OLED Screen">
+                        <img class="fit-picture" src="pictures/OLED_ironman.png" alt="Ironman">
+                        <img class="fit-picture" src="pictures/OLED_snowflake.png" alt="Snowflake">
+
+                        <p> This is the code we use for testing display ironman. </p>
+
+                        <pre>
+                            <code class="cpp"> 
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+static const uint8_t image_data[1024] = {
+    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf9, 0xff, 0xfd, 0x9f, 0xc1, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xf0, 0x3c, 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xe0, 0x00, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0xff, 0xe0, 0x01, 0xf8, 0x1f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0x7f, 0xc0, 0x03, 0xf8, 0x0f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf1, 0x7f, 0xc0, 0x03, 0xfc, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf3, 0xff, 0x80, 0x0b, 0xfc, 0x03, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf3, 0xff, 0x80, 0x0b, 0xfc, 0x01, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 0x0f, 0x80, 0x09, 0xfc, 0x05, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xc7, 0xf0, 0x0f, 0x07, 0x8d, 0xfe, 0x05, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0x9b, 0xf0, 0x0f, 0x0f, 0x8d, 0xfe, 0x06, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0x9f, 0xf8, 0x3f, 0x0f, 0x8c, 0xfe, 0x06, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0x8f, 0xfb, 0xef, 0x07, 0x8c, 0xfe, 0x06, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xcf, 0xfb, 0xe7, 0x01, 0x0c, 0xfe, 0x06, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xc7, 0xf8, 0xe6, 0x01, 0x0c, 0xff, 0x0e, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xc1, 0xf8, 0xe6, 0x01, 0x0c, 0x7f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0xf8, 0x66, 0x03, 0x0c, 0x7f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xe0, 0x7c, 0x02, 0x0f, 0x1c, 0x7f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xe0, 0x7c, 0x02, 0x03, 0x3c, 0x7f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf3, 0xfc, 0x00, 0x03, 0x78, 0x7f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf1, 0xfc, 0xf8, 0x03, 0xf0, 0x3f, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x9f, 0xf8, 0xfc, 0xf8, 0x07, 0xf7, 0x87, 0xfe, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x07, 0xf8, 0x0c, 0x38, 0x07, 0xe3, 0xe1, 0xfc, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x33, 0xf8, 0x04, 0x18, 0x07, 0xc0, 0xf0, 0x01, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x3f, 0xfc, 0x06, 0x10, 0x07, 0xc0, 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x8f, 0xfc, 0x0e, 0x00, 0x07, 0xc0, 0x00, 0x3b, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0x82, 0x7e, 0x0e, 0x00, 0x01, 0xe0, 0x00, 0x03, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xc0, 0x3e, 0x0c, 0x00, 0x01, 0xb0, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xe0, 0x7e, 0x00, 0x00, 0x01, 0xb0, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xf0, 0xfe, 0x00, 0x00, 0x01, 0xb8, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xf8, 0x77, 0x00, 0x00, 0x01, 0xd8, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xfc, 0x03, 0x00, 0x1b, 0x01, 0xdc, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0x01, 0x80, 0x7b, 0xc1, 0xfc, 0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0x81, 0x80, 0x7b, 0xd0, 0x3c, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xc7, 0x83, 0x3b, 0xb8, 0x7e, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xef, 0x03, 0x80, 0x38, 0xfe, 0x00, 0x7f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x07, 0x9b, 0x7c, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x03, 0xae, 0xb0, 0x3f, 0xfc, 0x0f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x00, 0x5f, 0x44, 0x3f, 0xe0, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x0f, 0x3f, 0x1e, 0x33, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x0f, 0x7f, 0xde, 0x30, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x0f, 0x1f, 0x1e, 0x00, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x00, 0x5f, 0x40, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x03, 0xa0, 0x3c, 0x00, 0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x07, 0xda, 0x7c, 0x00, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x03, 0x80, 0xb8, 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x03, 0x3b, 0x90, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x7b, 0xc0, 0x01, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x00, 0x7b, 0xc0, 0x03, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x00, 0x0a, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x00, 0x00, 0x00, 0x3f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x00, 0x00, 0x00, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x00, 0x00, 0x01, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xf8, 0x10, 0x00, 0x07, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x1e, 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0x03, 0xff, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x80, 0x03, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xe0, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff
+};
+void setup() {
+    Serial.begin(921600);
+    if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+    }
+    delay(2000); // Pause for 2 seconds
+    // Clear the buffer.
+    display.clearDisplay();
+    testscrolltext();
+    // Clear the buffer.
+    display.clearDisplay();
+    // Draw bitmap on the screen
+    display.drawBitmap(0, 0, image_data, 128, 64, 1);
+    display.display();
+}
+    void testscrolltext(void) {
+    display.clearDisplay(); // clear the display screen of the OLED
+    display.setTextSize(2); // Draw 2X-scale text
+    display.setTextColor(WHITE);
+    display.setCursor(0, 0);
+    display.println(F("Welcome"));
+    delay(2000);
+    display.clearDisplay(); 
+    display.println(F("Coming Up"));
+    display.println(F("Iron Man"));
+    display.display();      
+    delay(100);
+    display.startscrollright(0x00, 0x0F);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+    display.startscrollleft(0x00, 0x0F);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+    display.startscrolldiagright(0x00, 0x07);
+    delay(2000);
+    display.startscrolldiagleft(0x00, 0x07);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+}
+void loop() {
+}
+                        </code>
+                    </pre>
+
+                    <p> This is the code we use for testing display snowflake. </p>
+
+                    <pre>
+                        <code class="cpp"> 
+/**************************************************************************
+This is an example for our Monochrome OLEDs based on SSD1306 drivers
+
+Pick one up today in the adafruit shop!
+------> http://www.adafruit.com/category/63_98
+
+This example is for a 128x64 pixel display using I2C to communicate
+3 pins are required to interface (two I2C and one reset).
+
+Adafruit invests time and resources providing this open
+source code, please support Adafruit and open-source
+hardware by purchasing products from Adafruit!
+
+Written by Limor Fried/Ladyada for Adafruit Industries,
+with contributions from the open source community.
+BSD license, check license.txt for more information
+All text above, and the splash screen below must be
+included in any redistribution.
+**************************************************************************/
+
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 64 // OLED display height, in pixels
+
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+// The pins for I2C are defined by the Wire-library. 
+// On an arduino UNO:       A4(SDA), A5(SCL)
+// On an arduino MEGA 2560: 20(SDA), 21(SCL)
+// On an arduino LEONARDO:   2(SDA),  3(SCL), ...
+#define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+#define NUMFLAKES     10 // Number of snowflakes in the animation example
+
+#define LOGO_HEIGHT   16
+#define LOGO_WIDTH    16
+static const unsigned char PROGMEM logo_bmp[] =
+{ 0b00000000, 0b11000000,
+    0b00000001, 0b11000000,
+    0b00000001, 0b11000000,
+    0b00000011, 0b11100000,
+    0b11110011, 0b11100000,
+    0b11111110, 0b11111000,
+    0b01111110, 0b11111111,
+    0b00110011, 0b10011111,
+    0b00011111, 0b11111100,
+    0b00001101, 0b01110000,
+    0b00011011, 0b10100000,
+    0b00111111, 0b11100000,
+    0b00111111, 0b11110000,
+    0b01111100, 0b11110000,
+    0b01110000, 0b01110000,
+    0b00000000, 0b00110000 };
+
+void setup() {
+    Serial.begin(9600);
+
+    // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+    if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;); // Don't proceed, loop forever
+    }
+
+    // Show initial display buffer contents on the screen --
+    // the library initializes this with an Adafruit splash screen.
+    display.display();
+    delay(2000); // Pause for 2 seconds
+
+    // Clear the buffer
+    display.clearDisplay();
+
+    // Draw a single pixel in white
+    display.drawPixel(10, 10, SSD1306_WHITE);
+
+    // Show the display buffer on the screen. You MUST call display() after
+    // drawing commands to make them visible on screen!
+    display.display();
+    delay(2000);
+    // display.display() is NOT necessary after every single drawing command,
+    // unless that's what you want...rather, you can batch up a bunch of
+    // drawing operations and then update the screen all at once by calling
+    // display.display(). These examples demonstrate both approaches...
+
+    testdrawline();      // Draw many lines
+
+    testdrawrect();      // Draw rectangles (outlines)
+
+    testfillrect();      // Draw rectangles (filled)
+
+    testdrawcircle();    // Draw circles (outlines)
+
+    testfillcircle();    // Draw circles (filled)
+
+    testdrawroundrect(); // Draw rounded rectangles (outlines)
+
+    testfillroundrect(); // Draw rounded rectangles (filled)
+
+    testdrawtriangle();  // Draw triangles (outlines)
+
+    testfilltriangle();  // Draw triangles (filled)
+
+    testdrawchar();      // Draw characters of the default font
+
+    testdrawstyles();    // Draw 'stylized' characters
+
+    testscrolltext();    // Draw scrolling text
+
+    testdrawbitmap();    // Draw a small bitmap image
+
+    // Invert and restore display, pausing in-between
+    display.invertDisplay(true);
+    delay(1000);
+    display.invertDisplay(false);
+    delay(1000);
+
+    testanimate(logo_bmp, LOGO_WIDTH, LOGO_HEIGHT); // Animate bitmaps
+}
+
+void loop() {
+}
+
+void testdrawline() {
+    int16_t i;
+
+    display.clearDisplay(); // Clear display buffer
+
+    for(i=0; i<display.width(); i+=4) {
+    display.drawLine(0, 0, i, display.height()-1, SSD1306_WHITE);
+    display.display(); // Update screen with each newly-drawn line
+    delay(1);
+    }
+    for(i=0; i<display.height(); i+=4) {
+    display.drawLine(0, 0, display.width()-1, i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    delay(250);
+
+    display.clearDisplay();
+
+    for(i=0; i<display.width(); i+=4) {
+    display.drawLine(0, display.height()-1, i, 0, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    for(i=display.height()-1; i>=0; i-=4) {
+    display.drawLine(0, display.height()-1, display.width()-1, i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    delay(250);
+
+    display.clearDisplay();
+
+    for(i=display.width()-1; i>=0; i-=4) {
+    display.drawLine(display.width()-1, display.height()-1, i, 0, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    for(i=display.height()-1; i>=0; i-=4) {
+    display.drawLine(display.width()-1, display.height()-1, 0, i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    delay(250);
+
+    display.clearDisplay();
+
+    for(i=0; i<display.height(); i+=4) {
+    display.drawLine(display.width()-1, 0, 0, i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+    for(i=0; i<display.width(); i+=4) {
+    display.drawLine(display.width()-1, 0, i, display.height()-1, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000); // Pause for 2 seconds
+}
+
+void testdrawrect(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<display.height()/2; i+=2) {
+    display.drawRect(i, i, display.width()-2*i, display.height()-2*i, SSD1306_WHITE);
+    display.display(); // Update screen with each newly-drawn rectangle
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testfillrect(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<display.height()/2; i+=3) {
+    // The INVERSE color is used so rectangles alternate white/black
+    display.fillRect(i, i, display.width()-i*2, display.height()-i*2, SSD1306_INVERSE);
+    display.display(); // Update screen with each newly-drawn rectangle
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testdrawcircle(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<max(display.width(),display.height())/2; i+=2) {
+    display.drawCircle(display.width()/2, display.height()/2, i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testfillcircle(void) {
+    display.clearDisplay();
+
+    for(int16_t i=max(display.width(),display.height())/2; i>0; i-=3) {
+    // The INVERSE color is used so circles alternate white/black
+    display.fillCircle(display.width() / 2, display.height() / 2, i, SSD1306_INVERSE);
+    display.display(); // Update screen with each newly-drawn circle
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testdrawroundrect(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<display.height()/2-2; i+=2) {
+    display.drawRoundRect(i, i, display.width()-2*i, display.height()-2*i,
+        display.height()/4, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testfillroundrect(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<display.height()/2-2; i+=2) {
+    // The INVERSE color is used so round-rects alternate white/black
+    display.fillRoundRect(i, i, display.width()-2*i, display.height()-2*i,
+        display.height()/4, SSD1306_INVERSE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testdrawtriangle(void) {
+    display.clearDisplay();
+
+    for(int16_t i=0; i<max(display.width(),display.height())/2; i+=5) {
+    display.drawTriangle(
+        display.width()/2  , display.height()/2-i,
+        display.width()/2-i, display.height()/2+i,
+        display.width()/2+i, display.height()/2+i, SSD1306_WHITE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testfilltriangle(void) {
+    display.clearDisplay();
+
+    for(int16_t i=max(display.width(),display.height())/2; i>0; i-=5) {
+    // The INVERSE color is used so triangles alternate white/black
+    display.fillTriangle(
+        display.width()/2  , display.height()/2-i,
+        display.width()/2-i, display.height()/2+i,
+        display.width()/2+i, display.height()/2+i, SSD1306_INVERSE);
+    display.display();
+    delay(1);
+    }
+
+    delay(2000);
+}
+
+void testdrawchar(void) {
+    display.clearDisplay();
+
+    display.setTextSize(1);      // Normal 1:1 pixel scale
+    display.setTextColor(SSD1306_WHITE); // Draw white text
+    display.setCursor(0, 0);     // Start at top-left corner
+    display.cp437(true);         // Use full 256 char 'Code Page 437' font
+
+    // Not all the characters will fit on the display. This is normal.
+    // Library will draw what it can and the rest will be clipped.
+    for(int16_t i=0; i<256; i++) {
+    if(i == '\n') display.write(' ');
+    else          display.write(i);
+    }
+
+    display.display();
+    delay(2000);
+}
+
+void testdrawstyles(void) {
+    display.clearDisplay();
+
+    display.setTextSize(1);             // Normal 1:1 pixel scale
+    display.setTextColor(SSD1306_WHITE);        // Draw white text
+    display.setCursor(0,0);             // Start at top-left corner
+    display.println(F("Hello, world!"));
+
+    display.setTextColor(SSD1306_BLACK, SSD1306_WHITE); // Draw 'inverse' text
+    display.println(3.141592);
+
+    display.setTextSize(2);             // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.print(F("0x")); display.println(0xDEADBEEF, HEX);
+
+    display.display();
+    delay(2000);
+}
+
+void testscrolltext(void) {
+    display.clearDisplay();
+
+    display.setTextSize(2); // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 0);
+    display.println(F("scroll"));
+    display.display();      // Show initial text
+    delay(100);
+
+    // Scroll in various directions, pausing in-between:
+    display.startscrollright(0x00, 0x0F);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+    display.startscrollleft(0x00, 0x0F);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+    display.startscrolldiagright(0x00, 0x07);
+    delay(2000);
+    display.startscrolldiagleft(0x00, 0x07);
+    delay(2000);
+    display.stopscroll();
+    delay(1000);
+}
+
+void testdrawbitmap(void) {
+    display.clearDisplay();
+
+    display.drawBitmap(
+    (display.width()  - LOGO_WIDTH ) / 2,
+    (display.height() - LOGO_HEIGHT) / 2,
+    logo_bmp, LOGO_WIDTH, LOGO_HEIGHT, 1);
+    display.display();
+    delay(1000);
+}
+
+#define XPOS   0 // Indexes into the 'icons' array in function below
+#define YPOS   1
+#define DELTAY 2
+
+void testanimate(const uint8_t *bitmap, uint8_t w, uint8_t h) {
+    int8_t f, icons[NUMFLAKES][3];
+
+    // Initialize 'snowflake' positions
+    for(f=0; f< NUMFLAKES; f++) {
+    icons[f][XPOS]   = random(1 - LOGO_WIDTH, display.width());
+    icons[f][YPOS]   = -LOGO_HEIGHT;
+    icons[f][DELTAY] = random(1, 6);
+    Serial.print(F("x: "));
+    Serial.print(icons[f][XPOS], DEC);
+    Serial.print(F(" y: "));
+    Serial.print(icons[f][YPOS], DEC);
+    Serial.print(F(" dy: "));
+    Serial.println(icons[f][DELTAY], DEC);
+    }
+
+    for(;;) { // Loop forever...
+    display.clearDisplay(); // Clear the display buffer
+
+    // Draw each snowflake:
+    for(f=0; f< NUMFLAKES; f++) {
+        display.drawBitmap(icons[f][XPOS], icons[f][YPOS], bitmap, w, h, SSD1306_WHITE);
+    }
+
+    display.display(); // Show the display buffer on the screen
+    delay(200);        // Pause for 1/10 second
+
+    // Then update coordinates of each flake...
+    for(f=0; f< NUMFLAKES; f++) {
+        icons[f][YPOS] += icons[f][DELTAY];
+        // If snowflake is off the bottom of the screen...
+        if (icons[f][YPOS] >= display.height()) {
+        // Reinitialize to a random position, just off the top
+        icons[f][XPOS]   = random(1 - LOGO_WIDTH, display.width());
+        icons[f][YPOS]   = -LOGO_HEIGHT;
+        icons[f][DELTAY] = random(1, 6);
+        }
+    }
+    }
+}                           
+                        </code>
+                    </pre>
+
+
+                        <h2> Deadline WEEK 7: Friday, November 15th </h2>
+                        <h2> Status: DONE ! </h2>
                     </div>
                 </div>
 
-                <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 3. Enclosure and Setup </h3>
-                        <p> Finished 3D printing for basic solution 
-                            enclosure, path for tube, body for 
-                            contaminated water and measurement, 
-                            and plastic cup to gather and pour water 
-                            (not 3D printed) </p>
+
+                        <h3> 3. Test and confirm pumps to pump fluids with ESP32-S3-Mini-1 </h3>
+
+                        <img class="fit-picture" src="pictures/Water_Pump.jpg" alt="Water pump">
+
+                        <video controls>
+                            <source src="pictures/Water_pump_testing.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <video controls>
+                            <source src="pictures/2_Water_Pump_Testing.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <h2> Deadline WEEK 7: Friday, November 15th </h2>
+                        <h2> Status: DONE! </h2>
                     </div>
                 </div>
 
-                <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 4. Software Implement </h3>
-                        <p> Completed code for pH sensor data collection 
-                            and logging to read and display pH values 
-                            over time for both regular and contaminated 
-                            water, with pH data collected and tabulated. </p>
+                        <h3> 4. CAD on Onshape and 3D print 3 enclosures </h3>
+
+                        <h2>Deadline WEEK 8: Monday, November 18th </h2>
+                        <h2> Status: In Progress, Prints completed next day </h2>
                     </div>
                 </div>
 
-                <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 5. Software and Hardware Implement </h3>
-                        <p> Finished code and hardware integration for 
-                            pumping with connections to PCB and 
-                            recognizing pump in Arduino, basic solution 
-                            can travel in pump to water and stop pumping 
-                            when correct pH is read.</p>
+                        <h3>5. Buy baking soda, vinegar, and sealable containers </h3>
+                        <p>Status: DONE!<br>Deadline: Monday, November 18th</p>
                     </div>
                 </div>
 
-                <!-- TIMELINE -->
                 <div class="timeline">
-                    
-                    <img 
-                    class="fit-picture"
-                    src="pictures/ditto.jpeg" 
-                    width="100px"
-                    alt="Timeline Image">
-
                     <div class="timeline-info">
-                        <h3> 6. Testing </h3>
-                        <p> Testing and data collection in Untreated 
-                            Water, testing out conditions for demo by 
-                            recording video of shown, unclean dirty 
-                            water with higher pH levels and showing 
-                            pumping solution regulating pH levels until 
-                            level is sustainable for marine life.</p>
+                        <h3>6. Website, Poster, and Video Deliverables </h3>
+                        <p>Deadline: Wednesday, November 20th</p>
+                        <ul>
+                            <li><strong>Website</strong>: General Problem / Project Description, Flow Chart, Team Section</li>
+                            <li><strong>Poster</strong>: Layout template, Problem content</li>
+                            <li><strong>Video</strong>: Storyboard/Outline (1–5 minutes)</li>
+                        </ul>
                     </div>
                 </div>
 
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3>7. Assemble PCB and run with pumps and pH sensor measurement </h3>
+                        <p>Deadline: Wednesday, November 20th</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3>8. Finish Mini Project Tutorial (full documentation) </h3>
+                        <p>Deadline: Wednesday, November 20th</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3>9. Implement servo motor functionality with slow-moving propeller </h3>
+                        <p>Deadline: Friday, November 22nd</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3>10. Implement sleep mode in software </h3>
+                        <p>Deadline: Tuesday, December 2nd</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3>11. Utilize Wi-Fi or cellular connectivity with ESP-32 </h3>
+                        <p>Deadline: Thursday, December 5th</p>
+                        <p>Status: BIG PROJECT</p>
+                    </div>
+                </div>
+
+                <!-- OTHER TASKS -->
+                <div class="timeline">
+                    <div class="timeline-info">
+                        <h3> Other Tasks </h3>
+                        <ul>
+                            <li>Data visualization app showing graph of pH over time</li>
+                            <li>Variable pump speed control using PWM</li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
+            
             <!-- ------------- -->
             
 
@@ -196,15 +801,15 @@
             <div class="content flex">
             <!-- <p>By.Goodkatz | Free to use </p> -->
                 <img 
-                class="fit-picture"
                 src="pictures/UCSanDiegoLogo-BlueGold.png" 
                 width="200px"
-                alt="UCSD Logo"/>
+                alt="UC San Diego Logo"/>
         </div>
         <!--Content ends-->
 
 
         <script src="/public/milestonesAndTimelines.js"></script>
+        <script>hljs.highlightAll();</script>
     </body> 
 
 
