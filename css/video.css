@@ -7,15 +7,33 @@ body {
     padding: 0;
 }
 .container {
-    width: 80%;
+    width: min-content;
     margin: auto;
     overflow: hidden;
 }
 
-
-/* body {
-  margin:0;
-} */
+.vid {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+.vid img{
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: contain;
+}
+.vid-info h3 {
+  margin: 0;
+  color: #333;
+}
+.vid-info p {
+  margin: 10px 0;
+  color: #666;
+}
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;
