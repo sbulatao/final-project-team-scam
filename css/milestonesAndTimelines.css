@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 .container {
-  width: fit-content;
+  width: min-content;
   margin: auto;
   overflow: hidden;
 }
@@ -21,15 +21,13 @@ body {
   align-items: center;
 }
 .timeline img {
-  width: 300px;
-  height: 300px;
   border-radius: 8px;
   margin-right: 20px;
   object-fit: contain;
 }
 .timeline video {
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   border-radius: 8px;
   margin-right: 20px;
   object-fit: contain;
