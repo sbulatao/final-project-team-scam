@@ -78,7 +78,7 @@ body {
 
 .menu-bar a:hover {
   background-color: #1687B5;
-  color: white; /*Change this for better CONTRAST*/
+  color:white; /*Change this for better CONTRAST*/
 }
 
 pre {
