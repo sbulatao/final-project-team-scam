@@ -1,41 +1,41 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 .container {
-    width: fit-content;
-    margin: auto;
-    overflow: hidden;
+  width: fit-content;
+  margin: auto;
+  overflow: hidden;
 }
 .timeline {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 }
 .timeline img {
-    width: 300px;
-    height: 300px;
-    border-radius: 8px;
-    margin-right: 20px;
-    object-fit: contain;
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: contain;
 }
 .timeline video {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 8px;
   margin-right: 20px;
   object-fit: contain;
 }
 .timeline-info{
-    max-width: fit-content;
+  max-width: fit-content;
 }
 .timeline-info h1 {
   margin: 0;
@@ -57,10 +57,6 @@ body {
   color: #666;
   text-align: left;
 }
-
-/* body {
-  margin:0;
-} */
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;

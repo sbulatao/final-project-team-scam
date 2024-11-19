@@ -34,15 +34,10 @@ body {
     text-decoration: underline;
 }
 
-/* body {
-  margin:0;
-} */
-
 .menu-bar { /* menu bar */
   background-color: #3b67be;
   overflow: hidden;
 }
-
 .menu-bar a {
   float: left;
   display: block;
@@ -51,10 +46,9 @@ body {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 .menu-bar a:hover {
   background-color: #1687B5;
-  color:white;
+  color:white; /*Change this for better CONTRAST*/
 }
 
 h1 {

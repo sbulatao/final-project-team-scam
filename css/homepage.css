@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 .container {
-  width: 60%;
+  width: min-content;
   margin: auto;
   overflow: hidden;
 }
@@ -19,6 +19,11 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
+}
+.box img{
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: contain;
 }
 .box-info h3 {
   margin: 0;
@@ -33,7 +38,6 @@ body {
   background-color: #3b67be;
   overflow: hidden;
 }
-
 .menu-bar a {
   float: left;
   display: block;
@@ -42,10 +46,9 @@ body {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 .menu-bar a:hover {
   background-color: #1687B5;
-  color: white;
+  color:#fff; /*Change this for better CONTRAST*/
 }
 
 h1 {
