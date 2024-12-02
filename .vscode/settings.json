@@ -1,0 +1,13 @@
+{
+    "python.languageServer": "Pylance",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none",
+        "reportShadowedImports": "none"
+    },
+    "python.analysis.extraPaths": [
+        "",
+        "/Users/3xquisite/.vscode/extensions/joedevivo.vscode-circuitpython-0.2.0-darwin-x64/stubs",
+        "/Users/3xquisite/Library/Application Support/Code/User/globalStorage/joedevivo.vscode-circuitpython/bundle/20241121/adafruit-circuitpython-bundle-py-20241121/lib"
+    ],
+    "circuitpython.board.version": null
+}

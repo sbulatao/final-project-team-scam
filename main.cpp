@@ -2,6 +2,8 @@
 // NEED to INSTALL FirebaseESP32-S3: https://github.com/mobizt/Firebase-ESP32
 // CONFIGURE the ESP32-S3 to CONNECT to your Firebase database
 
+// MIGHT NEED a .env file
+
 #include <WiFi.h>
 #include <FirebaseESP32.h>
 
