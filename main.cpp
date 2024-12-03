@@ -1,26 +1,18 @@
-
-// NEED to INSTALL FirebaseESP32-S3: https://github.com/mobizt/Firebase-ESP32
-// CONFIGURE the ESP32-S3 to CONNECT to your Firebase database
-
-// MIGHT NEED a .env file
-
 #include <WiFi.h>
 #include <FirebaseESP32.h>
-
-// Replace with your WiFi credentials
-#define WIFI_SSID "NETGEAR68-5G"
-#define WIFI_PASSWORD "melodicbird404"
-
-// Firebase project credentials
-#define FIREBASE_HOST "https://ece-196scamproject-default-rtdb.firebaseio.com/"  // Firebase Realtime Database URL
-#define FIREBASE_AUTH "VqdCfSFN2HIRhih1ZGz8stDUESx4bc7i3w6MNGMB"  // Firebase database secret
+#include "config.h"
 
 // Firebase and WiFi objects
 FirebaseData firebaseData;
 
 void setup() {
   Serial.begin(115200);
+
+#ifdef LOCATION_SCHOOL
+  WiFi.begin(WIFI_SSID, WIFI_USERNAME, WIFI_PASSWORD);
+#else
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+#endif
 
   // Connect to WiFi
   Serial.print("Connecting to Wi-Fi");
