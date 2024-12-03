@@ -91,7 +91,7 @@ void loop() {
   display.display();
 
   String pumpStatus;
-  int servoPosition;
+  String servoStatus;
 
   // Pump and Servo Control
   if (pH < 6.5 || pH > 8) {
@@ -99,19 +99,15 @@ void loop() {
     Serial.println("Activating pump and moving servo...");
     digitalWrite(PUMP_PIN, HIGH);   // Turn on pump
     pumpStatus = "ON";
-
-    // myServo.write(180);            // Move servo to 180 degrees
-    // Serial.println("Servo moved 180 Degrees");
+    servoStatus = "MOVING";
 
     // Oscillate the servo between 0° and 180°
     for (int angle = 0; angle <= 180; angle += 10) {
       myServo.write(angle);
-      servoPosition = angle;
       delay(100);  // Adjust speed of movement HERE
     }
     for (int angle = 180; angle >= 0; angle -= 10) {
       myServo.write(angle);
-      servoPosition = angle;
       delay(100);  // Adjust speed of movement HERE
     }
 
@@ -120,10 +116,9 @@ void loop() {
     Serial.println("Turning off pump and resetting servo...");
     digitalWrite(PUMP_PIN, LOW);// Turn off pump
     pumpStatus = "OFF";
+    servoStatus = "STOPPED";
 
     myServo.write(0); // Reset servo
-    servoPosition = 0;
-    Serial.println("Servo moved 0 Degrees");
   }
 
   // Display pump and servo status
@@ -131,8 +126,7 @@ void loop() {
   display.print(F("Pump: "));
   display.println(pumpStatus);
   display.print(F("Servo: "));
-  display.print(servoPosition);
-  display.print(F(" Degrees"));
+  display.print(servoStatus);
   display.display();
 
   // Calibration (Optional, only when calibrating with buffer solutions)
