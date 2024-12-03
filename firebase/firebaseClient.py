@@ -4,7 +4,7 @@ from firebase_admin import credentials, initialize_app, db
 # print("Current working directory:", os.getcwd())
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate("/Users/3xquisite/Documents/GitHub/final-project-team-scam/.vscode/serviceAccountKey.json")
+cred = credentials.Certificate("serviceAccountKey")
 firebase_app = initialize_app(cred, {
     "databaseURL": "https://ece-196scamproject-default-rtdb.firebaseio.com/"
 })
