@@ -18,6 +18,11 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.schematic img {
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: cover;
+}
 .schematic h3 {
   margin: 0;
   color: #333;
@@ -26,10 +31,6 @@ body {
   margin: 10px 0;
   color: #666;
 }
-
-/* body {
-  margin:0;
-} */
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;
@@ -47,7 +48,7 @@ body {
 
 .menu-bar a:hover {
   background-color: #1687B5;
-  color: black;
+  color:white;
 }
 
 h1 {

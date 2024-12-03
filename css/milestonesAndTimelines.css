@@ -1,49 +1,60 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 .container {
-    width: 50%;
-    margin: auto;
-    overflow: hidden;
+  width: min-content;
+  margin: auto;
+  overflow: hidden;
 }
 .timeline {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 }
 .timeline img {
-    width: 150px;
-    height: 150px;
-    border-radius: 8px;
-    margin-right: 20px;
-    object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: contain;
+}
+.timeline video {
+  width: 550px;
+  height: 550px;
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: contain;
 }
 .timeline-info{
-    max-width: fit-content;
+  max-width: fit-content;
+}
+.timeline-info h1 {
+  margin: 0;
+  color: #333;
+  text-align: left;
+}
+.timeline-info h2 {
+  margin: 0;
+  color: #333;
+  text-align: left;
 }
 .timeline-info h3 {
-    margin: 0;
-    color: #333;
-    text-align: left;
+  margin: 0;
+  color: #333;
+  text-align: left;
 }
 .timeline-info p {
-    margin: 10px 0;
-    color: #666;
-    text-align: left;
+  margin: 10px 0;
+  color: #666;
+  text-align: left;
 }
-
-/* body {
-  margin:0;
-} */
 
 .menu-bar { /* menu bar */
   background-color: #3b67be;
@@ -61,8 +72,46 @@ body {
 
 .menu-bar a:hover {
   background-color: #1687B5;
-  color: black;
+  color:white; /*Change this for better CONTRAST*/
 }
+
+pre {
+  background-color: #f4f4f4; /* Light gray background for readability */
+  padding: 15px; /* Add padding around the code */
+  border-radius: 5px; /* Rounded corners */
+  overflow-x: auto; /* Horizontal scrollbar for long lines */
+  max-height: 400px; /* Limit the height of the code block */
+  overflow-y: auto; /* Add vertical scroll if needed */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+  font-size: 14px; /* Adjust font size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better focus */
+  border: 1px solid #ddd; /* Add a border */
+  margin-top: 20px; /* Space above the code block */
+  margin-bottom: 20px; /* Space below the code block */
+  text-align: left;
+}
+
+pre code {
+  background: #282c34; /* Dark background */
+  color: #abb2bf; /* Default text color */
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+ }
+ pre code .hljs-keyword, 
+ pre code .hljs-meta {
+  color: #c678dd; /* Keywords like #define, #include */
+ }
+ pre code .hljs-string {
+  color: #98c379; /* Strings in green */
+ }
+ pre code .hljs-function {
+  color: #61afef; /* Functions in blue */
+ }
+ pre code .hljs-number {
+  color: #d19a66; /* Numbers in orange */
+ }
+
 
 h1 {
   font-family: 'Lato', sans-serif;
