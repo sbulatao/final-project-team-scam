@@ -3,6 +3,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <ESP32Servo.h>
 
 // OLED Configuration
 #define SCREEN_WIDTH 128
@@ -13,11 +14,13 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 // Pin Definitions
 #define OLED_SCL 38
 #define OLED_SDA 39
-#define PH_SENSOR_PIN 16 //26  // Analog pin connected to the pH sensor
-#define PUMP_PIN 17
+#define PH_SENSOR_PIN 16  //26 -- Analog pin connected to the pH sensor
+#define PUMP_PIN 17       
+#define SERVO_PIN 15       // Pin connected to the servo signal wire
 
 float temperature = 25.0;  // Fixed temperature for simplicity
 DFRobot_PH phSensor;       // Create an instance of the pH sensor library
+Servo myServo;             // Create a Servo object
 
 void setup() {
   // Initialize Serial Monitor
@@ -26,8 +29,6 @@ void setup() {
 
   // Initialize EEPROM for calibration data storage
   EEPROM.begin(512);
-  // _neutralVoltage:1500.00 -- 2.5V pH 7
-  // _acidVoltage:2032.44 -- 2.2V pH 4
 
   // Initialize pH Sensor
   phSensor.begin();
@@ -55,6 +56,10 @@ void setup() {
   // Initialize Pump
   pinMode(PUMP_PIN, OUTPUT);
   digitalWrite(PUMP_PIN, LOW);  // Ensure pump is OFF initially
+
+  // Initialize Servo
+  myServo.attach(SERVO_PIN);  // Attach the servo to pin 15
+  myServo.write(90);          // Set servo to the neutral position (90 degrees)
 }
 
 void loop() {
@@ -62,16 +67,12 @@ void loop() {
   int pHValue = analogRead(PH_SENSOR_PIN);
 
   // Convert ADC value to voltage
-  // float voltage = pHValue * (3.3 / 4095.0);  // Using 3.3V reference
-  float voltage = pHValue * (5 / 4095.0);
+  float voltage = pHValue * (5 / 4095.0);  // Using 3.3V reference
 
-  // Read the pH value using the DFRobot_PH library
+  // Calculate pH value
   // float pH = phSensor.readPH(voltage, temperature);
-  // float pH = 7 + ((2.5 - voltage) / 0.18);  // Assuming a typical pH probe equation
-  // 2.5 -- Neutral pH 7 voltage (in volts)
-  // 0.18; -- Voltage change per pH unit
+  // float pH = 7 + ((2.5 - voltage) / 0.18);
   float pH = 9 + ((2.5 - voltage) / 0.18);
-
 
   // Print results to Serial Monitor
   Serial.print("Raw ADC Value: ");
@@ -89,17 +90,53 @@ void loop() {
   display.println(pH, 2);  // 2 decimal places
   display.display();
 
-  // Pump Control
+  String pumpStatus;
+  int servoPosition;
+
+  // Pump and Servo Control
   if (pH < 6.5 || pH > 8) {
-    Serial.println("pH is out of range. Activating pump...");
-    digitalWrite(PUMP_PIN, HIGH);
+    Serial.println("pH is out of range.");
+    Serial.println("Activating pump and moving servo...");
+    digitalWrite(PUMP_PIN, HIGH);   // Turn on pump
+    pumpStatus = "ON";
+
+    // myServo.write(180);            // Move servo to 180 degrees
+    // Serial.println("Servo moved 180 Degrees");
+
+    // Oscillate the servo between 0° and 180°
+    for (int angle = 0; angle <= 180; angle += 10) {
+      myServo.write(angle);
+      servoPosition = angle;
+      delay(100);  // Adjust speed of movement HERE
+    }
+    for (int angle = 180; angle >= 0; angle -= 10) {
+      myServo.write(angle);
+      servoPosition = angle;
+      delay(100);  // Adjust speed of movement HERE
+    }
+
   } else {
-    Serial.println("pH is within range. Turning off pump...");
-    digitalWrite(PUMP_PIN, LOW);
+    Serial.println("pH is within range.");
+    Serial.println("Turning off pump and resetting servo...");
+    digitalWrite(PUMP_PIN, LOW);// Turn off pump
+    pumpStatus = "OFF";
+
+    myServo.write(0); // Reset servo
+    servoPosition = 0;
+    Serial.println("Servo moved 0 Degrees");
   }
 
+  // Display pump and servo status
+  display.setCursor(0,20);
+  display.print(F("Pump: "));
+  display.println(pumpStatus);
+  display.print(F("Servo: "));
+  display.print(servoPosition);
+  display.print(F(" Degrees"));
+  display.display();
+
   // Calibration (Optional, only when calibrating with buffer solutions)
-  phSensor.calibration(voltage, temperature);  // Uncomment this line for calibration
+  // phSensor.calibration(voltage, temperature);  // Uncomment this line for calibration
 
   delay(1000);  // Delay between readings
 }
