@@ -8,6 +8,7 @@ from fastapi.responses import HTMLResponse        # Used for returning HTML resp
 from fastapi.templating import Jinja2Templates    # Used for generating HTML from templatized files
 from fastapi.staticfiles import StaticFiles       # Used for making static resources available to server
 import uvicorn                                    # Used for running the app directly through Python
+from firebase.firebaseClient import get_db_reference
 
 # import SensorData                                 
 
@@ -50,6 +51,18 @@ app.include_router(pHSensorRouter, prefix="/pHSensorData", tags=["pH Sensor"])
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 # This is the homepage --- '/' same for html
+# @app.get("/", response_class=HTMLResponse, tags=["Homepage"])
+# def get_home(request: Request):
+#     """
+#     Renders the homepage with dynamic data.
+#     """
+#     ref = get_db_reference("pHSensors")
+#     sensor_data = ref.get()  # Fetch data from Firebase
+
+#     return views.TemplateResponse("homepage.html", {
+#         "request": request,
+#         "sensor_data": sensor_data  # Pass the data to the template
+#     })
 @app.get("/", response_class=HTMLResponse, tags=["Homepage"]) # This should allow dynamic data to pass through
 def get_home(request: Request):
     return views.TemplateResponse("homepage.html", {"request": request})

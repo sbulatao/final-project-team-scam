@@ -180,7 +180,7 @@
 
                 <div class="box">
                     <div class="box-info">
-                        <h3> Real Time Data </h3>
+                        <h3> Real-Time pH Sensor Data </h3>
 
                         <p> 
                         * GRAPH HERE *
@@ -188,26 +188,14 @@
                         , y-axis: pH levels / Water Quality / etc.
                         </p>
 
-                        <img src="/pHSensorData/plot" alt="Real Time pH Levels" style="width: 100%; height: auto;">
+                        <!-- <img src="/pHSensorData/plot" alt="Real Time pH Levels" style="width: 100%; height: auto;"> -->
+                        <img id="phPlot" src="/pHSensorData/plot" alt="Real-Time Plot" style="max-width: 100%; height: auto;">
+                        
 
 
                     </div>
                     
                 </div>
-
-                <div class="box">
-                    <div class="box-info">
-                        <h3> Real Time Button Control Feature :3 </h3>
-
-                        <p> 
-                        Muhahahaaa
-                        </p>
-
-
-                    </div>
-                    
-                </div>
-
 
             </div>
 
@@ -246,6 +234,13 @@
 
 
         <script src="/public/homepage.js"></script>
+        <script>
+            // Update the plot every 5 seconds
+            setInterval(() => {
+                const img = document.getElementById("phPlot");
+                img.src = `/pHSensorData/plot?timestamp=${new Date().getTime()}`;  // Add timestamp to avoid caching
+            }, 5000);
+        </script>
     </body> 
 
 

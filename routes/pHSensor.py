@@ -101,11 +101,22 @@ async def add_sensor_data(data: SensorData):
 
 @router.get("/", summary="Get pH Sensor Data", tags=["pH Sensor"])
 async def get_sensor_data():
-    """
-    Retrieves all pH sensor data from Firebase.
-    """
     ref = get_db_reference("pHSensors")
-    return ref.get()
+    data = ref.get()
+    print(f"Retrieved data: {data}")  # Debugging line
+    if not data:
+        return {"message": "No data found under 'pHSensors' in Firebase."}
+    return data
+# @router.get("/", summary="Get pH Sensor Data", tags=["pH Sensor"])
+# async def get_sensor_data():
+#     """
+#     Retrieves all pH sensor data from Firebase.
+#     """
+#     ref = get_db_reference("pHSensors")
+#     data = ref.get()
+#     if not data:
+#         return {"message": "No data found under 'pHSensors' in Firebase."}
+#     return data
 
 
 @router.get("/plot", tags=["pH Sensor"])
@@ -113,22 +124,46 @@ async def plot_ph_data():
     """
     Generate and return a plot of pH values over time.
     """
-    # Fetch data from Firebase
     ref = get_db_reference("pHSensors")
-    data = ref.get()  # Assuming data is a dictionary {key: {timestamp, value}}
+    data = ref.get()  # Fetch data from Firebase
 
-    if not data:  # Handle missing or empty data
-        return {"error": "No data available under 'pHSensors' in Firebase."}
+    if not data:
+        # return {"error": "No data available under 'pHSensors' in Firebase."}
+        print("No data found in Firebase. Using test data")
+        data = {
+            "entry1": {"timestamp": "2024-11-22 10:30:00", "value": 6.2},
+            "entry2": {"timestamp": "2024-11-22 10:35:00", "value": 6.4},
+            "entry3": {"timestamp": "2024-11-22 10:40:00", "value": 6.5},
+            "entry4": {"timestamp": "2024-11-22 10:45:00", "value": 6.7},
+            "entry5": {"timestamp": "2024-11-22 10:50:00", "value": 7},
+            "entry6": {"timestamp": "2024-11-22 10:55:00", "value": 7.7},
+            "entry7": {"timestamp": "2024-11-22 11:00:00", "value": 7.3},
+            "entry8": {"timestamp": "2024-11-22 11:05:00", "value": 6.7},
+            "entry9": {"timestamp": "2024-11-22 11:10:00", "value": 6.6},
+            "entry10": {"timestamp": "2024-11-22 11:15:00", "value": 6.5},
+        }
 
-    # Extract timestamps and values
-    timestamps = []
-    values = []
-    for key, entry in data.items():
-        timestamps.append(datetime.strptime(entry['timestamp'], "%Y-%m-%d %H:%M:%S"))  # Convert string to datetime
-        values.append(entry['value'])
+    # Validate data structure and extract entries
+    try:
+        entries = [
+            (key, value)
+            for key, value in data.items()
+            if isinstance(value, dict) and "timestamp" in value and "pH" in value
+        ]
 
-    # Sort data by timestamps
-    timestamps, values = zip(*sorted(zip(timestamps, values)))
+        # Sort entries by timestamp
+        entries = sorted(
+            entries, key=lambda x: datetime.strptime(x[1]["timestamp"], "%Y-%m-%d %H:%M:%S")
+        )
+    except Exception as e:
+        return {"error": f"Data parsing error: {e}"}
+
+    if not entries:
+        return {"error": "No valid entries found in 'pHSensors'."}
+
+    # Extract timestamps and pH values
+    timestamps = [datetime.strptime(entry[1]["timestamp"], "%Y-%m-%d %H:%M:%S") for entry in entries]
+    values = [entry[1]["pH"] for entry in entries]
 
     # Create the plot
     plt.figure(figsize=(10, 6))
