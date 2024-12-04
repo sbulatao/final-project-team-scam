@@ -14,16 +14,72 @@ router = APIRouter()
 data = {
     "entry1": {
         "timestamp": "2024-11-22 10:30:00",
-        "value": 7.5
+        "value": 6.2
     },
     "entry2": {
-        "timestamp": "2024-11-22 11:00:00",
-        "value": 6.8
+        "timestamp": "2024-11-22 10:35:00",
+        "value": 6.4
     },
     "entry3": {
+        "timestamp": "2024-11-22 10:40:00",
+        "value": 6.5
+    },
+    "entry4": {
+        "timestamp": "2024-11-22 10:45:00",
+        "value": 6.7
+    },
+    "entry5": {
+        "timestamp": "2024-11-22 10:50:00",
+        "value": 7
+    },
+    "entry6": {
+        "timestamp": "2024-11-22 10:55:00",
+        "value": 7.7
+    },
+    "entry7": {
+        "timestamp": "2024-11-22 11:00:00",
+        "value": 7.3
+    },
+    "entry8": {
+        "timestamp": "2024-11-22 11:05:00",
+        "value": 6.7
+    },
+    "entry9": {
+        "timestamp": "2024-11-22 11:10:00",
+        "value": 6.6
+    },
+        "entry10": {
+        "timestamp": "2024-11-22 11:15:00",
+        "value": 6.5
+    },
+    "entry11": {
+        "timestamp": "2024-11-22 11:20:00",
+        "value": 6.4
+    },
+    "entry12": {
+        "timestamp": "2024-11-22 11:25:00",
+        "value": 6.5
+    },
+    "entry13": {
         "timestamp": "2024-11-22 11:30:00",
-        "value": 7.2
-    }
+        "value": 6.7
+    },
+    "entry14": {
+        "timestamp": "2024-11-22 11:35:00",
+        "value": 7
+    },
+    "entry15": {
+        "timestamp": "2024-11-22 11:40:00",
+        "value": 7.1
+    },
+    "entry16": {
+        "timestamp": "2024-11-22 11:45:00",
+        "value": 7
+    },
+    "entry17": {
+        "timestamp": "2024-11-22 11:50:00",
+        "value": 6.9
+    },
 }
 
 # Push test data only if "pHSensors" node is empty
