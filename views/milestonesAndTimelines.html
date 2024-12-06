@@ -136,9 +136,9 @@
 
                         <pre>
                             <code class="cpp"> 
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
@@ -285,10 +285,10 @@ All text above, and the splash screen below must be
 included in any redistribution.
 **************************************************************************/
 
-#include <SPI.h>
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include &lt;SPI.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -815,7 +815,7 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
 
                         <img class="fit-picture" src="pictures/CAD_untreated.png" width="280px" alt="CAD Untreated">
                         <img class="fit-picture" src="pictures/CAD_basic.png" width="280px" alt="CAD Basic">
-                        <img class="fit-picture" src="pictures/CAD_untreated.png" width="280px" alt="CAD Acidic">
+                        <img class="fit-picture" src="pictures/CAD_acidic.png" width="290px" alt="CAD Acidic">
 
                         <p> A rounded square bowls that can contain untreated water, basic solution, and acidic solutions. </p>
 
@@ -830,7 +830,7 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
                         </p>
 
                         <p> This is our acidic solution container: 
-                        <a href="https://cad.onshape.com/documents/51222e8f6d33862d5240ab0a/w/e2cd0c2412d060a53b66f8cd/e/3fa1d059b2e7d4c3889bbc32?renderMode=0&uiState=673b8511f076ed087e1c4e7b"> ACIDIC ENCLOSURE </a>
+                        <a href="https://cad.onshape.com/documents/12d9345081561fd15036a50c/w/471cb56f8f3d093f19157ec2/e/95fbda3f7c00199448c1ecf6?renderMode=0&uiState=674e6e1edbe6b468dfb27458"> ACIDIC ENCLOSURE </a>
                         </p>
 
                         <h2>Deadline WEEK 8: Monday, November 18th </h2>
@@ -878,7 +878,9 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
                         <p><b>Poster</b>: Layout template, Problem content:
 
                             <a href="https://docs.google.com/presentation/d/1tkwPLDBKp7LPgqJJpZR4btRKH2zP2umtgP07RrwuhNE/edit?usp=sharing"> Google Slide Poster Link HERE</a>
-                            , <a href="https://www.canva.com/design/DAGW4Ys4XVw/G-YXvh9ty26DNBUC8t_ldA/edit?utm_content=DAGW4Ys4XVw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"> Canva Poster Link HERE </a>
+
+                            . The finished Poster:  
+                            <a href="https://www.canva.com/design/DAGW4Ys4XVw/G-YXvh9ty26DNBUC8t_ldA/edit?utm_content=DAGW4Ys4XVw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"> Canva Poster Link HERE </a>
                         </p>
 
 
@@ -904,9 +906,16 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
 
                         <img class="fit-picture" src="pictures/pH_Sensor.jpg" width="350px" alt="pH Sensor w/ESP32-S3-Mini-1">
                         <img class="fit-picture" src="pictures/pH_Sensor connected with ESP32S3.jpg" width="350px" alt="pH Sensor ON w/ESP32-S3-Mini-1">
+                        <img class="fit-picture" src="pictures/oledpHReading.jpeg" width="300px" alt="Water pump">
+                        
+                        <video controls>
+                            <source src="pictures/pumppH.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
 
-                        <h2>Deadline WEEK 8: Wednesday, November 20th</h2>
-                        <h2> Status: IN PROGRESS </h2>
+                        <h2> Deadline WEEK 8: Wednesday, November 20th </h2>
+                        <h2> Status: DONE! on December 2nd </h2>
+                        <h2> Issue found: We flipped the ESP32-S3-Mini-1 so pins are flipped. </h2>
                     </div>
                 </div>
 
@@ -918,7 +927,7 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
                         <a href="https://docs.google.com/document/d/1tOQ4GiA9oPv2r-2DQ0YTpGmolA_tE11bDBRXx47Bx9o/edit?tab=t.0#heading=h.pwaynmqdgkc0"> Mini Project Template </a>
                         </p>
 
-                        <h2>Deadline WEEK 8: Wednesday, November 20th</h2>
+                        <h2>Deadline WEEK 8: Wednesday, November 20th extended until December 6th </h2>
                         <h2> Status: IN PROGRESS </h2>
                     </div>
                 </div>
@@ -933,8 +942,129 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
                         accurately measure pH.
                         </p>
 
+                        <video controls>
+                            <source src="pictures/motorpH.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <pre>
+                            <code  class="cpp">
+#include "DFRobot_PH.h"
+#include &lt;EEPROM.h&gt; 
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include &lt;ESP32Servo.h&gt;
+
+// OLED Configuration
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// Pin Definitions
+#define OLED_SCL 38
+#define OLED_SDA 39
+#define PH_SENSOR_PIN 16  //26 -- Analog pin connected to the pH sensor
+#define PUMP_PIN 17       
+#define SERVO_PIN 15       // Pin connected to the servo signal wire
+
+float temperature = 25.0;  // Fixed temperature for simplicity
+DFRobot_PH phSensor;       // Create an instance of the pH sensor library
+Servo myServo;             // Create a Servo object
+
+void setup() {
+    // Initialize Serial Monitor
+    Serial.begin(115200);
+    delay(100);
+
+    // Initialize EEPROM for calibration data storage
+    EEPROM.begin(512);
+
+    // Initialize pH Sensor
+    phSensor.begin();
+    Serial.println("pH Sensor initialized. Calibrate with known buffer solutions if needed.");
+
+    // Initialize I2C for OLED
+    Wire.begin(OLED_SDA, OLED_SCL);
+
+    // Initialize OLED Display
+    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("OLED initialization failed!"));
+    for (;;);  // Halt execution
+    }
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+    display.println(F("OLED Initialized"));
+    display.display();
+
+    // Configure ADC
+    analogReadResolution(12);          // Set ADC resolution to 12 bits
+    analogSetAttenuation(ADC_11db);    // Set attenuation for full input range (0-3.3V)
+
+    // Initialize Pump
+    pinMode(PUMP_PIN, OUTPUT);
+    digitalWrite(PUMP_PIN, LOW);  // Ensure pump is OFF initially
+
+    // Initialize Servo
+    myServo.attach(SERVO_PIN);  // Attach the servo to pin 15
+    myServo.write(90);          // Set servo to the neutral position (90 degrees)
+}
+
+void loop() {
+    // Read raw analog value from pH sensor
+    int pHValue = analogRead(PH_SENSOR_PIN);
+
+    // Convert ADC value to voltage
+    float voltage = pHValue * (5 / 4095.0);  // Using 3.3V reference
+
+    // Calculate pH value
+    float pH = 9 + ((2.5 - voltage) / 0.18);
+
+    // Print results to Serial Monitor
+    Serial.print("Raw ADC Value: ");
+    Serial.print(pHValue);
+    Serial.print(" | Voltage: ");
+    Serial.print(voltage, 2);  // 2 decimal places
+    Serial.print("V | pH: ");
+    Serial.println(pH);
+
+    // Display pH on OLED
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.println(F("pH Sensor Reading:"));
+    display.print(F("pH: "));
+    display.println(pH, 2);  // 2 decimal places
+    display.display();
+
+    // Pump and Servo Control
+    if (pH < 6.5 || pH > 8) {
+    Serial.println("pH is out of range. Activating pump and moving servo...");
+    digitalWrite(PUMP_PIN, HIGH);   // Turn on pump
+
+    myServo.write(180);            // Move servo to 180 degrees
+    Serial.println("Servo moved 180 Degrees");
+
+    } else {
+    Serial.println("pH is within range. Turning off pump and resetting servo...");
+    digitalWrite(PUMP_PIN, LOW);   // Turn off pump
+
+    myServo.write(90);             // Reset servo to neutral position
+    Serial.println("Servo moved 90 Degrees");
+    }
+
+    // Calibration (Optional, only when calibrating with buffer solutions)
+    phSensor.calibration(voltage, temperature);  // Uncomment this line for calibration
+
+    delay(1000);  // Delay between readings
+}
+                            </code>
+                        </pre>
+
                         <h2> Deadline WEEK 8: Friday, November 22nd </h2>
-                        <h2> Status: IN PROGRESS </h2>
+                        <h2> Status: DONE! on Monday, December 2nd </h2>
                     </div>
                 </div>
 
@@ -963,6 +1093,8 @@ void blinkAndSpin(unsigned int pin1, unsigned int pin2) {
                         that we code. This would allow users to remotely monitor water quality 
                         and receive notifications if water conditions deteriorate.
                         </p>
+
+                        <img class="fit-picture" src="pictures/wifi.png" width="500px" alt="Schematic">
 
                         <h2> Deadline WEEK 10: Thursday, December 5th </h2>
                         <h2> Status: BIG PROJECT </h2>

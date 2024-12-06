@@ -135,9 +135,32 @@
                         <p> 
                         Our proposed solution is to have a REAL-TIME water pH Regulation Network. The pH sensor 
                         detects a body of water and regards to whether the water is acidic/alkaline, we then pump 
-                        in basic solutions of either acidic/alkaline in untreated water to regulate pH level for 
-                        marine life. 
+                        in solutions of either acidic or alkaline in untreated water to regulate pH level for 
+                        marine life. For most marine life, a suitable pH level is considered to be between
+                        6.5 and 8 on the pH scale. The optimal pH level for main life is between 7 and 9 
+                        on the pH scale.
                         </p>
+
+                        <p>
+                        When water pH levels drop below 6.5, marine life (organisms that have build 
+                        shells or skeletons from calcium carbonate like corals, oyesters, clam) are
+                        impacted. The key effects of low pH on marine life is it is difficult for 
+                        them to form and maintain their protective structures, physiological stress,
+                        a decrease in reproductive success, disrupts the food web.
+                        Potentially leading marine life to decline and disrupts the entire 
+                        ecosystem. It's a phenomenon referred as "ocean acidification".
+                        </p>
+
+                        <p>
+                        A Real-Time water pH Regulation Network is crucial for marin life because pH significantly
+                        impacts the biological processes of marine life. Even with slight fluctuations can cause
+                        stress, hinder growth, affect reproduction, and the decline of marine life. Particularly,
+                        coral reefs who are very sensitive species when pH level fluctuates. With monitoring pH level 
+                        in real-time, we can detect early harmful changes and allow us to enable proactive measures
+                        to protect marine life and ecosystem.
+                        </p>
+
+
 
                         <img class="fit-picture" src="pictures/phScale.png" width="400px" alt="pH Scale">
                         <img class="fit-picture" src="pictures/possibleSetup.png" width="400px" alt="Setup-ish">
@@ -168,7 +191,13 @@
                         <h3> Diagram/Flowchart </h3>
 
                         <p> 
-                         * STILL NEED TO UPDATE THIS PICTURE *
+                        In this diagram, we have a untreated conainer that contains untreated water.
+                        The untreated container has both a pH sensor and a motor. The pH sensor allows
+                        us to check the pH sensor of the main untreated container. If the untreated
+                        container has a pH level of below the pH of 6.5 and above the ph of 8. Then
+                        we will pump from either the acidic container and the basic container to the 
+                        main untreated container so that the pH level of the main untreated container
+                        is within suitable pH level for marin life.
                         </p>
 
                         <img class="fit-picture" src="pictures/diagram.png" width="900px" alt="Testing">
@@ -180,32 +209,29 @@
 
                 <div class="box">
                     <div class="box-info">
-                        <h3> Real Time Data </h3>
+                        <h3> Real-Time pH Sensor Data </h3>
+
+                        <p>
+                            This is a real-time pH Sensor Data that allows us to see
+                            the pH level activity of the main container. 
+                        </p>
+
+                        <p>
+                            x-axis: TIME (Month/Day/Year HH:MM:SS) 
+                        </p>
 
                         <p> 
-                        * GRAPH HERE *
-                        x-axis: TIME (Month/Day/Year HH:MM:SS) 
-                        , y-axis: pH levels / Water Quality / etc.
+                            y-axis: pH levels / Water Quality / etc.
                         </p>
+
+                        <!-- <img src="/pHSensorData/plot" alt="Real Time pH Levels" style="width: 100%; height: auto;"> -->
+                        <img id="phPlot" src="/pHSensorData/plot" alt="Real-Time Plot" style="max-width: 100%; height: auto;">
+                        
 
 
                     </div>
                     
                 </div>
-
-                <div class="box">
-                    <div class="box-info">
-                        <h3> Real Time Button Control Feature :3 </h3>
-
-                        <p> 
-                        Muhahahaaa
-                        </p>
-
-
-                    </div>
-                    
-                </div>
-
 
             </div>
 
@@ -244,6 +270,13 @@
 
 
         <script src="/public/homepage.js"></script>
+        <script>
+            // Update the plot every 5 seconds
+            setInterval(() => {
+                const img = document.getElementById("phPlot");
+                img.src = `/pHSensorData/plot?timestamp=${new Date().getTime()}`;  // Add timestamp to avoid caching
+            }, 5000);
+        </script>
     </body> 
 
 
