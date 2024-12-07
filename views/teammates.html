@@ -81,9 +81,48 @@
                         My role within this group project is to add some chaos and fun.
                         Overall just enjoy the simple things in life.
                         </p>
-
+                        My contributions include working on the software aspects of the 
+                        project. I worked on the Fullstack (Hardware) assignment with Afraz 
+                        with Python Programming, Arduino IDE programming, and Enabling the 
+                        USB CDC On Boot with the ESP32. I collaborated with Chloe for testing 
+                        and coding the components that we received such as the OLED, and water 
+                        pump to see whether they were working properly. I collaborated with Afraz 
+                        on creating the layout of the poster, and I also collaborated with Minh with 
+                        finishing the poster. I also collaborated with Chloe with the Mini Project 
+                        Tutorial, covering the Part 2: Web Design section and Firebase Realtime 
+                        Database. I collaborated with Afraz with the Fullstack (Software) of the 
+                        website. We did the Front-End (developing the HTML, CSS, and later 
+                        JavaScript) and the Back-End (Python) of the website. It is very 
+                        time-consuming. Once when the PCB board had all of the components soldered 
+                        together with the ESP32, OLED, battery, pumps, and the pH module with the pH 
+                        sensor and started coding to test if everything works as they should. Then on 
+                        Tuesday the 26th, I got the waterproof servo, tested it, added the code, and 
+                        it works. On SUNDAY of DECEMBER 1st at around 7PM of WEEK 9/10, while looking 
+                        at the schematic of the PCB design and with the help of a friend, we figured 
+                        out that the ESP32 was placed wrong on the PCB board and everything was 
+                        flipped. I changed the pins and placed a wire from IO26 to IO16 to get an 
+                        analog input for the pH Sensor on the Arduino IDE and everything worked. The 
+                        OLED was displaying the pH readings, the pH sensor was working, the pumps were 
+                        working with the battery, and the servo was moving. Now on to Firebase, I have 
+                        researched it beforehand on November 19. With the help of YouTube:https://www.youtube.com/watch?v=aO92B-K4TnQ 
+                        and an article:https://randomnerdtutorials.com/esp32-firebase-realtime-database/. 
+                        I was able to get the ESP32 to store data to the Firebase realtime database and 
+                        for the ESP32 to read from the Firebase realtime database. I also need to think 
+                        about how to send the data from the ESP32 to the server. So for the web server,
+                        I needed to initialize the Firebase admin SDK to get the database reference, then I 
+                        needed a router to get the data from Firebase realtime database under the database reference 
+                        called pHSensors and another router for plotting the pHSensors data. What was missing was
+                        that I also needed a web app Firebase configuration to initialize Firebase and get
+                        the data, write the data to Firebase in RealTime, and add data entries for the web.
+                        For the ESP32, I needed the Wifi, Firebase Host and Authentication, and the server url.
+                        So the ESP32 handles sending data to Firebase, and sending data to the server. The challenges
+                        that I faced was that one of the Firebase libraries was so big that it was using about
+                        70% of the ESP32 memory, so I needed to find a smaller library. I ended up using 95% of 
+                        the ESP32 memory in total. I also had 15% of dynamic memory, so if the ESP32 uses all that
+                        dynamic memory, the realtime data plot stops since I used all of it. Which then I need to
+                        turn off the ESP32 and turn it back on so that it resets lol.
                         <p>
-                        My contributions include mostly of the software part
+                        
                         </p>
                     </div>
                     
