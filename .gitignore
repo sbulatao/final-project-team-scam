@@ -1,3 +1,6 @@
 /.vscode/serviceAccountKey.json
 config.h
 serviceAccountKey
+__pycache__
+firebase/__pycache__
+routes/__pycache__
