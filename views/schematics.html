@@ -62,6 +62,12 @@
                         <h3> Schematic </h3>
                     </div>
 
+                    <p>
+                        This schematic is for our PCB designed in KiCAD. We have different sections labelled for Adafruit Pumps, for the Acidic and Basic solutions respectively, a voltage regulator that we did not end up using, the OLED screen displaying motor status spinning or not, ph value, and if pumps are on. One issue we found while we were using this after printing were that some of the pins were flipped for the pcb setup we had for our ES32, so we took a lot of time troubleshooting and figuring out what was wrong, only to find out the pins weren't working because we flipped them on the setup.
+                        
+                        Our PCB does not work like we expected. But first of all, the challenge we faced was to look for the footprint of each components. Then we were advised by our classmate about components that we missed related to NMOS we built in the PCB. We decided to solder the component on the top of PCB. Then we faced the challenge that the pin header for ESP32 board was flipped. At this phase of the project, it's too late to make another PCB, so we decided to add wire externally. Add more to that, there is problem with our voltage regulator, so we took out its output pin and wired them externally.
+                    </p>
+
                     <img class="fit-picture" src="pictures/Schematic.PNG" width="1000px" alt="Schematic Image">
                     
                 </div>
