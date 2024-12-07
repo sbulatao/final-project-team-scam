@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 .container {
-    width: 50%;
+    width: min-content;
     margin: auto;
     overflow: hidden;
 }
@@ -21,8 +21,6 @@ body {
     align-items: center;
 }
 .favorite img {
-    width: 150px;
-    height: 150px;
     border-radius: 8px;
     margin-right: 20px;
     object-fit: cover;
